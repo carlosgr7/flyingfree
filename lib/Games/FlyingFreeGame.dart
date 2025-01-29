@@ -5,13 +5,16 @@ import 'package:flame/events.dart';
 import 'package:flame/parallax.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_tiled/flame_tiled.dart';
+import 'package:flyingfree/Bodies/BirdBody.dart';
 
 class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollisionDetection{
+
+  late BirdBody _birdBody;
 
   FutureOr<void> onLoad() async {
     await super.onLoad();
     // TODO: implement onLoad
-    debugMode = false;
+    debugMode = true;
     await images.loadAll([
       'Background1.png',
       'Background2.png',
@@ -21,7 +24,8 @@ class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollis
       'Background6.png',
       'Background7.png',
       'Background8.png',
-      'Background9.png'
+      'Background9.png',
+      'bird1.png'
 
     ]);
 
@@ -40,6 +44,10 @@ class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollis
     TiledComponent mapa1 = await TiledComponent.load("mapa1.tmx", Vector2(128, 128));
     mapa1.scale = Vector2(0.38, 0.25);
     add(mapa1);
+
+    _birdBody = BirdBody(Vector2(50,100));
+
+    add(_birdBody);
 
   }
 }

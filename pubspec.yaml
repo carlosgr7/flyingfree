@@ -64,7 +64,6 @@ flutter:
       - assets/
       - assets/audio/
       - assets/images/
-      - assets/images/characters/
       - assets/images/imgs_tiles/
       - assets/tiles/
       - assets/tiles/tilesets/

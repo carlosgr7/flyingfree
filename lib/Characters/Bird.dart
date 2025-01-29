@@ -16,7 +16,7 @@ class Bird extends SpriteAnimationComponent
       game.images.fromCache('bird1.png'),
       SpriteAnimationData.sequenced(
         amount: 4,
-        textureSize: Vector2.all(32),
+        textureSize: Vector2.all(16),
         stepTime: 0.12,
       ),
     );
