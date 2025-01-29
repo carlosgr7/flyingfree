@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/parallax.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:flame_tiled/flame_tiled.dart';
 
 class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollisionDetection{
 
@@ -35,5 +36,10 @@ class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollis
     }
 
     add(await bgParallax());
+
+    TiledComponent mapa1 = await TiledComponent.load("mapa1.tmx", Vector2(128, 128));
+    mapa1.scale = Vector2(0.38, 0.25);
+    add(mapa1);
+
   }
 }

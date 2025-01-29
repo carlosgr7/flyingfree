@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flame_forge2d: ^0.18.2+4
   flame: ^1.23.0
+  flame_tiled: 1.21.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
       - assets/audio/
       - assets/images/
       - assets/images/characters/
+      - assets/images/imgs_tiles/
       - assets/tiles/
       - assets/tiles/tilesets/
 
