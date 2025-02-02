@@ -59,6 +59,7 @@ class BirdBody extends BodyComponent with KeyboardHandler, ContactCallbacks{
     if (birdSkin.scale.x < 0) {
       birdSkin.flipHorizontally();
     }
+
   }
 
   @override

@@ -51,11 +51,18 @@ class FlyingFree extends Forge2DGame with HasKeyboardHandlerComponents,HasCollis
 
     add(_birdBody);
 
+
+
+
+
     final colisiones_rectangulos = mapa1.tileMap.getLayer<ObjectGroup>('colisiones_rectangulos');
     for (final rectColision in colisiones_rectangulos!.objects) {
       add(RectangularColision(Vector2(rectColision.x*3.05, rectColision.y*2),
           Vector2(rectColision.width*3.05, rectColision.height*2)));
     }
 
+
+
   }
+
 }
