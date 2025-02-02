@@ -4,6 +4,9 @@ import 'package:flame_forge2d/contact_callbacks.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flyingfree/Characters/PuntoControl.dart';
+import 'package:flyingfree/Colisiones/RectangularColision.dart';
+import 'package:flyingfree/Games/FlyingFreeGame.dart';
 
 import '../Characters/Bird.dart';
 
@@ -14,16 +17,21 @@ class BirdBody extends BodyComponent with KeyboardHandler, ContactCallbacks{
   late BodyDef miBodyDef;
   late Bird birdSkin;
 
+
+
+
+
   //Variables que controlan el movimiento
   int horizontalDirection = 0;
   int verticalDirection = 0;
-  final double aceleracion = 50;
-  final double jumpSpeed = 50;
+  final double aceleracion = 100;
+  final double jumpSpeed = 1500 ;
 
   BirdBody(this.initialPosition) : super(renderBody: false);
 
   @override
   Future<void> onLoad() {
+    world.gravity = Vector2(0, 900);
     debugMode = false;
     birdSkin = Bird(position: Vector2(0, 0));
     add(birdSkin);
@@ -77,4 +85,9 @@ class BirdBody extends BodyComponent with KeyboardHandler, ContactCallbacks{
 
 
 
+  @override
+  void beginContact(Object other, Contact contact) {
+
+    super.beginContact(other, contact);
+  }
 }

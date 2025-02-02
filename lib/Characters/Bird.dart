@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flyingfree/Characters/PuntoControl.dart';
+import 'package:flyingfree/Colisiones/RectangularColision.dart';
 import 'package:flyingfree/Games/FlyingFreeGame.dart';
 
 class Bird extends SpriteAnimationComponent
@@ -9,6 +11,10 @@ class Bird extends SpriteAnimationComponent
 
   Bird({required super.position,}) :
         super(size: Vector2(64,64), anchor: Anchor.center);
+
+  int iStars = 0;
+  int get stars => iStars;
+
 
   @override
   void onLoad() {
@@ -34,6 +40,21 @@ class Bird extends SpriteAnimationComponent
     super.update(dt);
 
 
+  }
+
+  @override void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+    // TODO: implement onCollisionStart
+    super.onCollisionStart(intersectionPoints, other);
+
+    if(other is PuntoControl){
+      print("colision");
+      iStars++;
+      game.collectStar();
+    }
+
+    if(other is RectangularColision){
+      game.showGameOverScreen();
+    }
   }
 
 }
